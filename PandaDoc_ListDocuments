@@ -1,0 +1,13 @@
+	public struct function listDocuments(){
+		var httpService = new http();
+
+		httpService.setTimeout( 30 );
+		httpService.setMethod( 'GET' );
+		httpService.setUrl( variables.pandaDocAPIURL & "/documents" );
+
+		httpService.addParam( type="header", name="Authorization", value=variables.apiKey );
+
+		var httpResponse = httpService.send().getPrefix();
+
+		return httpResponse;
+	}
